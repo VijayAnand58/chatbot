@@ -20,7 +20,8 @@ async def on_ready():
         await channel.send("""
                            Hi Welcome to Organic Chemistry Bot,
                            \n Here you can ask questions to the bot regading organic chemistry and it will answer.
-                           \n It reffers to the works of  Dr. C. Neuman, Jr., Professor of Chemistry, University of California, Riverside.""")
+                           \n It reffers to the works of  Dr. C. Neuman, Jr., Professor of Chemistry, University of California, Riverside.
+                           \n The bot's context is confined to the knowledge in the textbook.""")
     else:
         print("Channel not found!")
 
