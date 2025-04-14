@@ -114,10 +114,9 @@ def ask_question(input):
         question=input
         # Add question to state
         state_input = {"question": question,}
-
         # Run RAG
         state_output = graph.invoke(state_input)
-            
+        # Output answer given in the state
         answer = state_output["answer"]
 
         return answer
