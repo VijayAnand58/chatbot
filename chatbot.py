@@ -62,7 +62,30 @@ from langchain_core.documents import Document
 from typing_extensions import List, TypedDict
 
 # Define prompt for question-answering
-prompt = hub.pull("rlm/rag-prompt")
+# prompt = hub.pull("rlm/rag-prompt") predifined prompt template
+
+from langchain.prompts import PromptTemplate
+
+prompt = PromptTemplate(
+    input_variables=["context", "question"],
+    template="""
+You are an expert Organic Chemistry assistant. Use only the provided context as your primary source of information. 
+If the context contains enough information, answer strictly based on it. 
+If the context provides only partial information, build upon it using your own organic chemistry knowledge — but stay in the domain of organic chemistry. 
+
+Do NOT answer questions that are completely irrelevant to organic chemistry or when the context provides no clues. 
+If you're unsure or the context is totally unrelated to the question, reply with: "I don't have enough information to answer that."
+
+Context:
+{context}
+
+Question:
+{question}
+
+Answer:
+"""
+)
+
 
 # Define state for application
 class State(TypedDict):
